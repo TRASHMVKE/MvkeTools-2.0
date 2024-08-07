@@ -26,7 +26,7 @@ export default function Form() {
 
     try {
       const response = await toast.promise(
-        axios.post("http://localhost:4000/page/page", formData),
+        axios.post(import.meta.env.VITE_API_PAGE_URL + "/page", formData),
         {
           pending: "Uploading...",
           success: "Page created successfully",

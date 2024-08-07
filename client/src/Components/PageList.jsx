@@ -7,7 +7,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function PageList() {
   const { setAuthenticated, verifyUser, filteredData } = useContextPage();
-  console.log(filteredData)
 
   useEffect(() => {
     const token = Cookies.get("token");
