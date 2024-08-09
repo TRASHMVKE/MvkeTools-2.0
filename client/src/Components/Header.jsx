@@ -8,18 +8,13 @@ import FIlters from "./FIlters";
 import "@github/typing-effect-element";
 
 export default function Header() {
-  const [open1, setIsopen1] = useState(false);
-  const { isOpen, open, autenticated } = useContextPage();
+  const { autenticated } = useContextPage();
   return (
     <header>
       <div className="flex justify-end m-3 gap-4">
         {/*boton de agregar */}
         {autenticated ? (
-          <button
-            title="Add New"
-            className="group cursor-pointer outline-none hover:rotate-90 duration-300"
-            onClick={() => setIsopen1(!open1)}
-          >
+          <label htmlFor="addModal" className="cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="50px"
@@ -34,13 +29,13 @@ export default function Header() {
               <path d="M8 12H16" strokeWidth="1.5" />
               <path d="M12 16V8" strokeWidth="1.5" />
             </svg>
-          </button>
+          </label>
         ) : (
           ""
         )}
         {/*user Button */}
-        <button onClick={() => isOpen(!open)}>
-          <div className="flex bg-white  px-1.25 py-1.25 shadow-box-up rounded-2xl dark:bg-box-dark dark:shadow-box-dark-out  ">
+        <label htmlFor="my_modal_7">
+          <div className=" cursor-pointer flex bg-white  px-1.25 py-1.25 shadow-box-up rounded-2xl dark:bg-box-dark dark:shadow-box-dark-out  ">
             <div className="dark:shadow-buttons-box-dark rounded-2xl w-full  md:px-2 md:py-2 ">
               <a className="text-light-blue-light hover:text-black dark:text-gray-400 border-2 inline-flex items-center mr-4 last-of-type:mr-0 p-2.5 border-transparent bg-light-secondary shadow-button-flat-nopressed hover:border-2 hover:shadow-button-flat-pressed focus:opacity-100 focus:outline-none active:border-2 active:shadow-button-flat-pressed font-medium rounded-full text-sm text-center dark:bg-button-curved-default-dark dark:shadow-button-curved-default-dark dark:hover:bg-button-curved-pressed-dark dark:hover:shadow-button-curved-pressed-dark dark:active:bg-button-curved-pressed-dark dark:active:shadow-button-curved-pressed-dark dark:focus:bg-button-curved-pressed-dark dark:focus:shadow-button-curved-pressed-dark dark:border-0">
                 <svg
@@ -58,7 +53,7 @@ export default function Header() {
               </a>
             </div>
           </div>
-        </button>
+        </label>
       </div>
 
       {/*h1 title */}
@@ -72,25 +67,19 @@ export default function Header() {
       </div>
 
       {/*filtros*/}
-      <div>
+      <div >
         <FIlters />
       </div>
 
       {/*agregar pagina form */}
 
-      <div
-        className={`absolute top-20 right-0 z-50 ${
-          open1 ? "block" : "hidden"
-        } `}
-      >
+      <div className={`absolute top-20 right-0 z-50  `}>
         {autenticated ? <Form /> : ""}
       </div>
 
       {/*form de logerse  */}
 
-      <div
-        className={`absolute top-20 right-0 z-50 ${open ? "block" : "hidden"} `}
-      >
+      <div className={`absolute top-20 right-0 z-50`}>
         {autenticated ? <LogOut /> : <LoginForm />}
       </div>
     </header>

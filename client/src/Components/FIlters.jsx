@@ -5,6 +5,7 @@ export default function FIlters() {
   return (
     <div
       className="flex items-center justify-center gap-5 mt-5"
+      
     >
       <button
         className="bg-gradient-to-r from-purple-600 via-purple-400 to-blue-500 text-white px-4 py-2 font-bold rounded-md hover:opacity-80"

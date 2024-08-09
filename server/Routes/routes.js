@@ -6,6 +6,6 @@ const routes = Router();
 routes.post("/register", register);
 routes.post("/login", login);
 routes.get("/check", verifyToken);
-routes.get("/logout", verifyToken);
+routes.get("/logout", logOut);
 
 export default routes;

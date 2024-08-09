@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Cookies from "js-cookie";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AOS from 'aos'
 
 export default function PageList() {
   const { setAuthenticated, verifyUser, filteredData } = useContextPage();
@@ -25,7 +26,7 @@ export default function PageList() {
         {filteredData ? (
           <div className="p-10 gap-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 ">
             {filteredData.map((page) => (
-              <div key={page._id}>
+              <div key={page._id} data-aos="fade-up"  >
                 <Card page={page} />
               </div>
             ))}

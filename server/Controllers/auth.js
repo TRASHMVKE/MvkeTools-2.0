@@ -69,7 +69,6 @@ export const login = async (req, res) => {
 
 export const verifyToken = (req, res) => {
   const { token } = req.cookies;
-  console.log(token);
   if (!token) {
     return res.status(401).json({ message: "No token provided" });
   }
@@ -84,6 +83,6 @@ export const verifyToken = (req, res) => {
 };
 
 export const logOut = (req, res) => {
-  res.cookie("token", "", { expires: new Date(0) });
+  res.cookie("token", " ", { expires: new Date(0) });
   res.status(200).json({ message: "Logout successful" });
 };
